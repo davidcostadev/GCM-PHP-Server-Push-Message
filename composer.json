@@ -22,7 +22,7 @@
         "source": "https://github.com/davidcostadev/php-notification-phonegap",
         "issues": "https://github.com/davidcostadev/php-notification-phonegap/issues"
     },
-    "minimum-stability": "dev-master",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.6.0"
     },
