@@ -1,0 +1,16 @@
+{
+    "name": "davidcostadev/php-notification-phonegap",
+    "description": "PHP Notification Phonegap for android and ios",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Costa",
+            "email": "davidcostadev@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.6.0"
+    }
+}
