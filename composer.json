@@ -10,7 +10,7 @@
         "php",
         "gcm",
         "cakephp",
-        "composer",
+        "composer"
     ],
     "authors": [
         {
@@ -18,12 +18,11 @@
             "email": "davidcostadev@gmail.com"
         }
     ],
-
     "support": {
         "source": "https://github.com/davidcostadev/php-notification-phonegap",
         "issues": "https://github.com/davidcostadev/php-notification-phonegap/issues"
     },
-    "minimum-stability": "master",
+    "minimum-stability": "0.1.0",
     "require": {
         "php": ">=5.6.0"
     },
