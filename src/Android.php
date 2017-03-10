@@ -2,7 +2,7 @@
 
 namespace NotificationPhonegap;
 
-use GCMPushMessage;
+// use GCMPushMessage;
 
 
 Class Android {
