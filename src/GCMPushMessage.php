@@ -4,32 +4,32 @@ namespace NotificationPhonegap;
 
 use Exception;
 
-/*
-    Class to send push notifications using Google Cloud Messaging for Android
-
-    Example usage
-    -----------------------
-    $an = new GCMPushMessage($apiKey);
-    $an->setDevices($devices);
-    $response = $an->send($message);
-    -----------------------
-
-    $apiKey Your GCM api key
-    $devices An array or string of registered device tokens
-    $message The mesasge you want to push out
-
-    @author Matt Grundy
-
-    Adapted from the code available at:
-    http://stackoverflow.com/questions/11242743/gcm-with-php-google-cloud-messaging
-
-*/
+/**
+ *  Class to send push notifications using Google Cloud Messaging for Android
+ *
+ *  Example usage
+ *  -----------------------
+ *  $an = new GCMPushMessage($apiKey);
+ *  $an->setDevices($devices);
+ *  $response = $an->send($message);
+ *  -----------------------
+ *
+ *  $apiKey Your GCM api key
+ *  $devices An array or string of registered device tokens
+ *  $message The mesasge you want to push out
+ *
+ *  @author Matt Grundy
+ *
+ *  Adapted from the code available at:
+ *  http://stackoverflow.com/questions/11242743/gcm-with-php-google-cloud-messaging
+ *
+ */
 class GCMPushMessage {
 
     // the URL of the GCM API endpoint
     private $url = 'https://android.googleapis.com/gcm/send';
     // the server API key - setup on class init
-    private $serverApiKey = "";
+    private $serverApiKey = '';
     // array of devices to send to
     private $devices = array();
 
@@ -41,42 +41,43 @@ class GCMPushMessage {
         $this->serverApiKey = $apiKeyIn;
     }
 
-    /*
-        Set the devices to send to
-        @param $deviceIds array of device tokens to send to
-    */
-    public function setDevices($deviceIds){
-        if(is_array($deviceIds)){
+    /**
+     *  Set the devices to send to
+     *  @param $deviceIds array of device tokens to send to
+     */
+    public function setDevices($deviceIds) {
+        if(is_array($deviceIds)) {
             $this->devices = $deviceIds;
         } else {
             $this->devices = array($deviceIds);
         }
     }
 
-    /*
-        Send the message to the device
-        @param $message The message to send
-        @param $data Array of data to accompany the message
-    */
-    public function send($message, $data = false){
+
+    /**
+     *  Send the message to the device
+     *  @param $message Array String The message to send
+     */
+    public function send($message) {
 
         if(!is_array($this->devices) || count($this->devices) == 0){
-            throw new GCMPushMessageArgumentException("No devices set");
+            throw new GCMPushMessageArgumentException('No devices set');
         }
 
         if(strlen($this->serverApiKey) < 8){
-            throw new GCMPushMessageArgumentException("Server API Key not set");
+            throw new GCMPushMessageArgumentException('Server API Key not set');
         }
 
-        $fields = array(
-            'registration_ids'  => $this->devices,
-            'data'              => array( "message" => $message ),
-        );
+        $fields['registration_ids'] = $this->devices;
 
-        if(is_array($data)){
-            foreach ($data as $key => $value) {
+        if(is_array($message)) {
+            foreach ($message as $key => $value) {
                 $fields['data'][$key] = $value;
             }
+        } else {
+            $fields['data'] = [
+                'message' => $message
+            ];
         }
 
         $headers = array(

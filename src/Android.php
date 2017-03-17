@@ -15,7 +15,7 @@ final class Android {
         $this->Push = new GCMPushMessage();
     }
 
-    private static function instance() {
+    public static function instance() {
         if(is_null(self::$_instance)) {
             self::$_instance = new self();
         }
@@ -29,7 +29,7 @@ final class Android {
 
     public static function setKey($key) {
         self::instance()
-        ->Push->setKey($key);
+            ->Push->setKey($key);
     }
 
     public static function recipients(array $devices) {
@@ -42,7 +42,16 @@ final class Android {
 
         $response = $self->Push->send($message);
 
-        echo $response;
+        return $self->checkResponse($response);
+    }
 
+    public function send($arrayMessage) {
+        $response = $this->Push->send($arrayMessage, true);
+
+        return $this->checkResponse($response);
+    }
+
+    private function checkResponse($response) {
+        return $response;
     }
 }
