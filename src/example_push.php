@@ -4,8 +4,8 @@ include "GCMPushMessage.php";
 
 $apiKey = "YOURGOOGLEAPIKEY";
 $devices = array(
-	"device1token",
-	"device2token"
+    "device1token",
+    "device2token"
 );
 $message = "GCM Test Message";
 

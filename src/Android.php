@@ -52,6 +52,6 @@ final class Android {
     }
 
     private function checkResponse($response) {
-        return $response;
+        return json_decode($response);
     }
 }
