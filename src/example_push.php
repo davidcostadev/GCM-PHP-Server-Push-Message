@@ -1,13 +1,13 @@
 <?php
 
-include "GCMPushMessage.php";
+include 'GCMPushMessage.php';
 
-$apiKey = "YOURGOOGLEAPIKEY";
+$apiKey = 'YOURGOOGLEAPIKEY';
 $devices = array(
-    "device1token",
-    "device2token"
+    'device1token',
+    'device2token'
 );
-$message = "GCM Test Message";
+$message = 'GCM Test Message';
 
 $an = new GCMPushMessage($apiKey);
 $an->setDevices($devices);

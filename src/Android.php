@@ -4,7 +4,6 @@ namespace NotificationPhonegap;
 
 // use GCMPushMessage;
 
-
 final class Android {
 
     private static $_instance;
