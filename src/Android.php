@@ -32,8 +32,12 @@ final class Android {
     }
 
     public static function recipients(array $devices) {
-        self::instance()
-            ->setDevices($devices);
+
+        if(count($devices)) {
+            self::instance()
+                ->setDevices($devices);
+        }
+
     }
 
     public static function simple($message) {
